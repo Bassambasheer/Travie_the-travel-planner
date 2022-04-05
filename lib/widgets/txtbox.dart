@@ -16,8 +16,9 @@ class TxtField extends StatelessWidget {
         decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      border: OutlineInputBorder(),
+        contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+       enabledBorder: OutlineInputBorder(
+                  borderSide: new BorderSide(color: Colors.grey, width: 0.4)),
           hintText: hint,
         ),
       ),

@@ -25,7 +25,7 @@ class SignInScreen extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.grey.withOpacity(0.3),
+              color: Colors.black.withOpacity(0.5),
             ),
             width: 300,
             height: 400,
@@ -37,7 +37,7 @@ class SignInScreen extends StatelessWidget {
                     "Travie.",
                     style: TextStyle(
                         fontSize: 30,
-                        color: Color.fromARGB(255, 20, 23, 29),
+                        color: Colors.white,
                         fontWeight: FontWeight.w900),
                   ),
                   const SizedBox(
@@ -47,7 +47,7 @@ class SignInScreen extends StatelessWidget {
                     "Plan your best trip with us",
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.blue,
                         fontWeight: FontWeight.w600),
                     textAlign: TextAlign.center,
                   ),

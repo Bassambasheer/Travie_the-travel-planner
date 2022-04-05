@@ -27,19 +27,20 @@ class SignupScreen extends StatelessWidget {
             child: Container(
                  decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.withOpacity(0.3),
+                  color: Colors.black.withOpacity(0.5),
                 ),
                 width: 300,
                 height: 450,
               child: Column(
                 children: [
-                   Padding(
-                     padding: const EdgeInsets.only(left: 15,right: 15,top: 10),
-                     child: const Text(
+                  const SizedBox(height: 20),
+                   const Padding(
+                     padding: EdgeInsets.only(left: 15,right: 15,top: 10),
+                     child: Text(
                       "Welcome to Travie.",
                       style: TextStyle(
                           fontSize: 25,
-                          color: Color.fromARGB(255, 20, 23, 29),
+                          color: Colors.white,
                           fontWeight: FontWeight.w900),
                   ),
                    ),
@@ -53,7 +54,7 @@ class SignupScreen extends StatelessWidget {
                     child: const Text(
                       "Already have an account?",
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.right,
                     ),
