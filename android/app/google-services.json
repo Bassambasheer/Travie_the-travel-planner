@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "729531608813",
+    "project_id": "travie-bae15",
+    "storage_bucket": "travie-bae15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729531608813:android:0d174694c6f2bf066d26e4",
+        "android_client_info": {
+          "package_name": "com.example.travie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729531608813-iqmqtjaln1b4s88gnmlfsnf7hmuej6ko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzp-vl0PV9hvkkEs3w3JpZz379NtGmqGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729531608813-iqmqtjaln1b4s88gnmlfsnf7hmuej6ko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
