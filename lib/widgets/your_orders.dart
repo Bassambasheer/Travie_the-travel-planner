@@ -18,8 +18,19 @@ class YourOrders extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.check_circle_rounded,size: 32,),),
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.close_outlined,size: 32,))
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.check_circle_rounded,
+                        size: 32,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.close_outlined,
+                          size: 32,
+                        ))
                   ],
                 ),
               ),

@@ -18,19 +18,19 @@ class HomeScreen extends StatelessWidget {
         actions: [
           MaterialButton(
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx) => const SignupScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => SignupScreen()));
             },
             child: const Text("Register"),
           )
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
           HomeCard(
             ontap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => const HotelsScreen()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx) => const HotelsScreen()));
             },
             size: size,
             axis: MainAxisAlignment.start,

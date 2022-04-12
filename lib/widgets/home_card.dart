@@ -24,14 +24,11 @@ class HomeCard extends StatelessWidget {
       mainAxisAlignment: axis,
       children: [
         Padding(
-          padding: const EdgeInsets.only(right:8.0),
+          padding: const EdgeInsets.only(right: 8.0),
           child: Text(
             lfttxt!,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
-              fontFamily: "Biz"
-            ),
+            style: const TextStyle(fontSize: 20, fontFamily: "Biz"),
           ),
         ),
         Padding(
@@ -78,14 +75,11 @@ class HomeCard extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:8),
+          padding: const EdgeInsets.only(left: 8),
           child: Text(
             rhttxt!,
             textAlign: TextAlign.center,
-             style: const TextStyle(
-              fontSize: 20,
-              fontFamily: "Biz"
-            ),
+            style: const TextStyle(fontSize: 20, fontFamily: "Biz"),
           ),
         ),
       ],

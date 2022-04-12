@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:travie/view/business_acc_signup.dart';
 import 'package:travie/view/profile_page.dart';
 import 'package:travie/widgets/drawer_card.dart';
 
@@ -17,18 +16,11 @@ class SideBar extends StatelessWidget {
           DrawerCard(
             txt: "Your Profile",
             ontap: () {
-               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => const ProfileScreen()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx) => const ProfileScreen()));
             },
           ),
           DrawerCard(
-            txt: "Create your Business Account",
-            ontap: () {
-               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => const SignupBusiness()));
-            },
-          ),
-             DrawerCard(
             txt: "Privacy Policy",
             ontap: () {},
           ),

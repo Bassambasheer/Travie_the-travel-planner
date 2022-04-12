@@ -1,11 +1,20 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:travie/Api/data.dart';
+import 'package:travie/model/register_company_model/register_company.dart';
+import 'package:travie/view/home_page.dart';
 import 'package:travie/widgets/login_button.dart';
 import 'package:travie/widgets/txtbox.dart';
 
 class SignupBusiness extends StatelessWidget {
-  const SignupBusiness({Key? key}) : super(key: key);
+  SignupBusiness({Key? key}) : super(key: key);
+
+  final TextEditingController _name = TextEditingController();
+  final TextEditingController _location = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -13,39 +22,47 @@ class SignupBusiness extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only( left: 30, right: 30),
-            child: Center(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  const TxtField(hint: "Company Name"),
-                  const TxtField(hint: "Location"),
-                  const TxtField(hint: "Email ID"),
-                  const TxtField(hint: "Phone Number"),
-                  const TxtField(hint: "Password"),
-                  const TxtField(hint: "Confirm Password"),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: TextButton.icon(
-                          label: const Text("Upload your license"),
-                          // ignore: void_checks
-                          onPressed: () async* {
-                            final img = await ImagePicker().pickImage(source: ImageSource.gallery);
-                            log(img.toString());
-                          },
-                          icon: const Icon(
-                            Icons.description_outlined,
-                            size: 40,
-                          )),
-                    ),
-                  ),
-                  const LoginButton(text:"Sign Up")
-                ],
-              ),
+        padding: const EdgeInsets.only(left: 30, right: 30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TxtField(
+              hint: "Company Name",
+              controller: _name,
+              pass: false,
             ),
-          )),
+            TxtField(hint: "Location", controller: _location, pass: false),
+            TxtField(hint: "Email ID", controller: _email, pass: false),
+            TxtField(hint: "Password", controller: _password, pass: true),
+            TxtField(
+                hint: "Confirm Password",
+                controller: _confirmpassword,
+                pass: true),
+            LoginButton(
+              text: "Sign Up",
+              onpress: () async {
+                await companySignUp();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: ((context) => const HomeScreen())));
+              },
+            )
+          ],
+        ),
+      )),
     );
+  }
+
+  Future companySignUp() async {
+    final name = _name.text;
+    final location = _location.text;
+    final email = _email.text;
+    final password = _password.text;
+
+    final newCompany = RegisterCompany.create(
+        companyName: name,
+        location: location,
+        email: email,
+        password: password);
+    CompanyDb().createCompany(newCompany);
   }
 }

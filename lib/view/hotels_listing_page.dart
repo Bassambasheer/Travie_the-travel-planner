@@ -21,8 +21,8 @@ class HotelsScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.grey,
                       ),
-                      borderRadius: const BorderRadius.all(
-                          Radius.circular(10.0)), 
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10.0)),
                       boxShadow: const [
                         BoxShadow(
                             blurRadius: 5,
@@ -57,12 +57,12 @@ class HotelsScreen extends StatelessWidget {
                                   fontSize: 16,
                                 ),
                               ),
-                               Text(
+                              Text(
                                 "\u{20B9}1000",
                                 style: TextStyle(
                                   fontSize: 16,
                                 ),
-                              ),                  
+                              ),
                             ],
                           ),
                         ),

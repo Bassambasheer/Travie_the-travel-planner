@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travie/view/home_page.dart';
+import 'package:travie/view/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:const HomeScreen(),
+      home: SignInScreen(),
     );
   }
 }

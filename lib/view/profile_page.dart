@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
           const Divider(
             thickness: 5,
           ),
-         const YourOrders(),
+          const YourOrders(),
         ],
       ),
     );

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:travie/view/business_acc_signup.dart';
+import 'package:travie/view/home_page.dart';
+import 'package:travie/view/sign_up_page.dart';
 import 'package:travie/widgets/login_button.dart';
 import 'package:travie/widgets/txtbox.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  SignInScreen({Key? key}) : super(key: key);
+
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +34,11 @@ class SignInScreen extends StatelessWidget {
               color: Colors.black.withOpacity(0.5),
             ),
             width: 300,
-            height: 400,
+            height: 415,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                children:  [
+                children: [
                   const Text(
                     "Travie.",
                     style: TextStyle(
@@ -52,19 +58,46 @@ class SignInScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 50),
-                  const TxtField(hint: "Email"),
-                  const TxtField(hint: "Password"),
-                  const LoginButton(
+                  TxtField(
+                    hint: "Email",
+                    controller: _email,
+                    pass: false,
+                  ),
+                  TxtField(
+                    hint: "Password",
+                    controller: _password,
+                    pass: true,
+                  ),
+                  LoginButton(
+                    onpress: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: ((context) => const HomeScreen())));
+                    },
                     text: "Sign In",
                   ),
-                   TextButton(
-                    child:   Text(
-                      "Forgot password?",
+                  TextButton(
+                    child: const Text(
+                      "Create new Account?",
                       style: TextStyle(
-                        color: Colors.red.shade600,
+                        color: Colors.white,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: ((context) => SignupScreen())));
+                    },
+                  ),
+                  TextButton(
+                    child: const Text(
+                      "Create a Business Account?",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (ctx) => SignupBusiness()));
+                    },
                   ),
                 ],
               ),
