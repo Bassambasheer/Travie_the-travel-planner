@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travie/view/hotels_listing_page.dart';
 import 'package:travie/view/sign_up_page.dart';
 import 'package:travie/widgets/home_card.dart';
 import 'package:travie/widgets/home_screen_drawer.dart';
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: SideBar(),
+      drawer: const SideBar(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
@@ -27,19 +28,24 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           HomeCard(
+            ontap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => const HotelsScreen()));
+            },
             size: size,
             axis: MainAxisAlignment.start,
             txt: "Choose your best fit\n Hotels",
             lfttxt: "",
-            rhttxt: "Travie always reccomends\nthe best for you ",
+            rhttxt: "T R A V I E\nalways\nreccomends\nthe\nbest\nfor you ",
           ),
           HomeCard(
+            ontap: () {},
             size: size,
             axis: MainAxisAlignment.end,
             txt: "Explore the best Viewpoints nearby",
             rhttxt: "",
             lfttxt:
-                "Wanna find peace , Travie \n shows the navigation to \n heavenly vibes",
+                "Wanna\nfind\npeace,\nT R A V I E\nshows\nnavigation\nto\nheavenly vibes",
           ),
         ],
       ),
