@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:travie/view/hotels_listing_page.dart';
-import 'package:travie/view/sign_up_page.dart';
 import 'package:travie/widgets/home_card.dart';
 import 'package:travie/widgets/home_screen_drawer.dart';
 
@@ -15,22 +14,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        actions: [
-          MaterialButton(
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => SignupScreen()));
-            },
-            child: const Text("Register"),
-          )
-        ],
       ),
       body: ListView(
         children: [
           HomeCard(
             ontap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx) => const HotelsScreen()));
+                  MaterialPageRoute(builder: (ctx) =>  HotelsScreen()));
             },
             size: size,
             axis: MainAxisAlignment.start,

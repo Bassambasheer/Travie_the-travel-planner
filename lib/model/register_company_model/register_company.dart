@@ -19,10 +19,12 @@ class RegisterCompany {
     this.email,
     this.password,
   });
-  RegisterCompany.create({required this.companyName,
+  RegisterCompany.create({
+    required this.companyName,
     required this.location,
     required this.email,
-    required this.password,});
+    required this.password,
+  });
 
   factory RegisterCompany.fromJson(Map<String, dynamic> json) {
     return _$RegisterCompanyFromJson(json);

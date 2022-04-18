@@ -63,6 +63,6 @@ class SignupBusiness extends StatelessWidget {
         location: location,
         email: email,
         password: password);
-    CompanyDb().createCompany(newCompany);
+    TravieDb().createCompany(newCompany);
   }
 }
