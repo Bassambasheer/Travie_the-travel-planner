@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travie/bloc/hotels_bloc_bloc.dart';
 import 'package:travie/view/home_page.dart';
 import 'package:travie/view/sign_in_page.dart';
 
@@ -11,12 +13,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiBlocProvider(
+      providers: [
+      BlocProvider<HotelsBlocBloc>(
+  create: (BuildContext context) => HotelsBlocBloc(),)
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: SignInScreen(),
       ),
-      home: SignInScreen(),
     );
   }
 }

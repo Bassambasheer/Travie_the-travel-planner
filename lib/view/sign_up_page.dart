@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travie/Api/data.dart';
+import 'package:travie/model/user_sign_up_model/user_sign_up_model.dart';
 import 'package:travie/view/sign_in_page.dart';
 import 'package:travie/widgets/login_button.dart';
 import 'package:travie/widgets/txtbox.dart';
@@ -66,20 +68,11 @@ class SignupScreen extends StatelessWidget {
                     controller: _confirmpassword,
                   ),
                   LoginButton(
-                    onpress: () {},
+                    onpress: () {
+                      userSignUp();
+                    },
                     text: "Sign Up",
                   ),
-                  // TextButton(
-                  //   child: const Text(
-                  //     "Already have an account?",
-                  //     style: TextStyle(
-                  //       color: Colors.white,
-                  //     ),
-                  //     textAlign: TextAlign.right,
-                  //   ),
-                  //   onPressed: () {
-                  //   },
-                  // ),
                 ],
               ),
             ),
@@ -87,5 +80,15 @@ class SignupScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future userSignUp() async {
+    final username = _username.text;
+    final email = _email.text;
+    final password = _password.text;
+
+    final _newUser = UserSignUpModel.create(
+        username: username, email: email, password: password);
+    TravieDb().createUser(_newUser);
   }
 }
