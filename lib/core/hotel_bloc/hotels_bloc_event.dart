@@ -9,5 +9,5 @@ class AddHotelEvent extends HotelsBlocEvent {
   AddHotelEvent(
       {required this.hotelName, required this.location, required this.price});
 }
-class GetAllHotelEvent extends HotelsBlocEvent{
-}
+
+class GetAllHotelEvent extends HotelsBlocEvent {}

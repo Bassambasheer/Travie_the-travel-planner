@@ -9,6 +9,6 @@ class HotelsBlocState {
 }
 
 class HotelsBlocInitial extends HotelsBlocState {
-  HotelsBlocInitial({required List<AddHotelModel> hotellist}) : super(hotellist: hotellist);
-  
+  HotelsBlocInitial({required List<AddHotelModel> hotellist})
+      : super(hotellist: hotellist);
 }

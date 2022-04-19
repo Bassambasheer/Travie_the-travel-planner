@@ -1,10 +1,14 @@
 import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:travie/Api/url.dart';
 import 'package:travie/model/add_hotel_model/add_hotel_model.dart';
 import 'package:travie/model/get_all_hotel_model/get_all_hotel_model.dart';
 import 'package:travie/model/register_company_model/register_company.dart';
+import 'package:travie/model/sign_in_model/sign_in_model.dart';
 import 'package:travie/model/user_sign_up_model/user_sign_up_model.dart';
 
 abstract class Api {
@@ -12,6 +16,7 @@ abstract class Api {
   Future<UserSignUpModel?> createUser(UserSignUpModel value);
   Future<AddHotelModel?> createHotel(AddHotelModel value);
   Future<List<AddHotelModel>> getallHotels();
+  Future signIn(SignInModel value);
 }
 
 class TravieDb extends Api {
@@ -20,12 +25,17 @@ class TravieDb extends Api {
 
   TravieDb() {
     dio.options =
-        BaseOptions(baseUrl: url.baseUrl, responseType: ResponseType.plain);
+        BaseOptions(baseUrl: url.baseUrl, responseType: ResponseType.plain,);
   }
 
   @override
   Future<RegisterCompany?> createCompany(RegisterCompany value) async {
-    final _result = await dio.post(url.registerCompany, data: value.toJson());
+    final _result = await dio.post(url.registerCompany, data: value.toJson(),
+    options: Options(
+    headers: {
+      "Authorization": value
+    },
+  ),);
     final resultAsJson = jsonDecode(_result.data);
     return RegisterCompany.fromJson(resultAsJson);
   }
@@ -53,6 +63,18 @@ class TravieDb extends Api {
       return getHotelResp.data!;
     } else {
       return [];
+    }
+  }
+
+  @override
+  signIn(SignInModel value) async {
+    try {
+      final _result = await dio.post(url.signIn, data: value.toJson());
+      final resultasJson = jsonDecode(_result.data);
+      SignInModel.fromJson(resultasJson);
+      return _result;
+    } on DioError catch (e) {
+      print(e);
     }
   }
 }

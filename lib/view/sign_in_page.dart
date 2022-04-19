@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:travie/Api/data.dart';
+import 'package:travie/model/sign_in_model/sign_in_model.dart';
 import 'package:travie/view/business_acc_signup.dart';
 import 'package:travie/view/home_page.dart';
 import 'package:travie/view/sign_up_page.dart';
@@ -70,8 +73,9 @@ class SignInScreen extends StatelessWidget {
                   ),
                   LoginButton(
                     onpress: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: ((context) => const HomeScreen())));
+                      // signin(context);
+                      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: ((context) => const HomeScreen())));
                     },
                     text: "Sign In",
                   ),
@@ -94,7 +98,7 @@ class SignInScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (ctx) => SignupBusiness()));
                     },
@@ -106,5 +110,21 @@ class SignInScreen extends StatelessWidget {
         )),
       ),
     );
+  }
+
+  signin(BuildContext context) async {
+    final _prefs = await SharedPreferences.getInstance();
+    final username = _email.text;
+    final password = _password.text;
+    final credentials =
+        SignInModel.create(username: username, password: password);
+    final _result = await TravieDb().signIn(credentials);
+    if (_result == 200) {
+      _prefs.setString("token", username);
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: ((context) => const HomeScreen())));
+    } else {
+      print(_result);
+    }
   }
 }

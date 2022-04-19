@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:travie/Api/data.dart';
 import 'package:travie/model/user_sign_up_model/user_sign_up_model.dart';
+import 'package:travie/view/home_page.dart';
 import 'package:travie/view/sign_in_page.dart';
 import 'package:travie/widgets/login_button.dart';
 import 'package:travie/widgets/txtbox.dart';
@@ -70,6 +72,7 @@ class SignupScreen extends StatelessWidget {
                   LoginButton(
                     onpress: () {
                       userSignUp();
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: ((context) => HomeScreen())));
                     },
                     text: "Sign Up",
                   ),
@@ -83,6 +86,7 @@ class SignupScreen extends StatelessWidget {
   }
 
   Future userSignUp() async {
+    final _prefs = await SharedPreferences.getInstance();
     final username = _username.text;
     final email = _email.text;
     final password = _password.text;
@@ -90,5 +94,6 @@ class SignupScreen extends StatelessWidget {
     final _newUser = UserSignUpModel.create(
         username: username, email: email, password: password);
     TravieDb().createUser(_newUser);
+          _prefs.setString("token", username);
   }
 }

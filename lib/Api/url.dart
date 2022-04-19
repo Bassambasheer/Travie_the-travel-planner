@@ -5,4 +5,5 @@ class Url {
   String userSignin = '/user/userLogin';
   String addHotel = "/company/addhotel";
   String getallHotels = '/company/hotels';
+  String signIn = '/user/userLogin';
 }

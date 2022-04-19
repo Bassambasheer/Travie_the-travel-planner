@@ -6,7 +6,6 @@ import 'package:travie/view/add_hotel.dart';
 class HotelsScreen extends StatelessWidget {
   const HotelsScreen({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     context.read<HotelsBlocBloc>().add(GetAllHotelEvent());

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:travie/widgets/drawer_card.dart';
 import 'package:travie/widgets/your_orders.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  ProfileScreen({Key? key}) : super(key: key);
+    
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Column(
         children: [
@@ -19,8 +22,8 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            "Name",
+          Text(
+            name!,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24),
           ),
@@ -39,4 +42,6 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
+
+ 
 }

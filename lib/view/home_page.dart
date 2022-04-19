@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travie/view/hotels_listing_page.dart';
+import 'package:travie/widgets/drawer_card.dart';
 import 'package:travie/widgets/home_card.dart';
 import 'package:travie/widgets/home_screen_drawer.dart';
 
@@ -8,6 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    pickname();
     final size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: const SideBar(),
@@ -19,8 +21,8 @@ class HomeScreen extends StatelessWidget {
         children: [
           HomeCard(
             ontap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx) =>  HotelsScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => HotelsScreen()));
             },
             size: size,
             axis: MainAxisAlignment.start,

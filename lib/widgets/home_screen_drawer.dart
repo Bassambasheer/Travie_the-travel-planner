@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:travie/view/profile_page.dart';
+import 'package:travie/view/sign_in_page.dart';
 import 'package:travie/widgets/drawer_card.dart';
 
 class SideBar extends StatelessWidget {
@@ -17,7 +19,7 @@ class SideBar extends StatelessWidget {
             txt: "Your Profile",
             ontap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx) => const ProfileScreen()));
+                  MaterialPageRoute(builder: (ctx) =>  ProfileScreen()));
             },
           ),
           DrawerCard(
@@ -27,6 +29,14 @@ class SideBar extends StatelessWidget {
           DrawerCard(
             txt: "Settings",
             ontap: () {},
+          ),
+          DrawerCard(
+            txt: "LogOut",
+            ontap: () async {
+              final _prefs = await SharedPreferences.getInstance();
+              _prefs.clear();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: ((context) => SignInScreen())));
+            },
           ),
         ],
       )),

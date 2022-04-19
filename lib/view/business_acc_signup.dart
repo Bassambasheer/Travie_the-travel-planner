@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:travie/Api/data.dart';
 import 'package:travie/model/register_company_model/register_company.dart';
 import 'package:travie/view/home_page.dart';
@@ -53,6 +54,7 @@ class SignupBusiness extends StatelessWidget {
   }
 
   Future companySignUp() async {
+     final _prefs = await SharedPreferences.getInstance();
     final name = _name.text;
     final location = _location.text;
     final email = _email.text;
@@ -64,5 +66,6 @@ class SignupBusiness extends StatelessWidget {
         email: email,
         password: password);
     TravieDb().createCompany(newCompany);
-  }
+      _prefs.setString("token", name);
+  } 
 }

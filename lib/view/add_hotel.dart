@@ -4,7 +4,7 @@ import 'package:travie/core/hotel_bloc/hotels_bloc_bloc.dart';
 import 'package:travie/widgets/txtbox.dart';
 
 class AddHotels extends StatelessWidget {
-const  AddHotels({Key? key}) : super(key: key);
+  const AddHotels({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ const  AddHotels({Key? key}) : super(key: key);
                           hotelName: state.name.text,
                           location: state.location.text,
                           price: state.amount.text));
-                           context.read<HotelsBlocBloc>().add(GetAllHotelEvent());
+                      context.read<HotelsBlocBloc>().add(GetAllHotelEvent());
                       Navigator.pop(context);
                     },
                     child: const Text("Add"),

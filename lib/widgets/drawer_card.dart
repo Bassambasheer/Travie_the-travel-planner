@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerCard extends StatelessWidget {
   const DrawerCard({
@@ -23,3 +24,9 @@ class DrawerCard extends StatelessWidget {
     );
   }
 }
+
+String? name;
+ pickname() async {
+    final _prefs = await SharedPreferences.getInstance();
+    name = _prefs.getString("token");
+  }
